@@ -1,0 +1,11 @@
+<div class="side-nav-main">
+  <ng-container *ngFor="let chat of userChats">
+    <app-chat-list-item
+      [currentUser]="currentUser"
+      [chat]="chat"
+      (click)="getMessage(chat, currentUser)"
+      [typingSignal]="typingSignal"
+      [typingChat]="typingChat"
+    ></app-chat-list-item>
+  </ng-container>
+</div>

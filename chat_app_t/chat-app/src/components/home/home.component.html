@@ -1,0 +1,67 @@
+<div class="div-home" [ngClass]="{ 'home-black': !theme, 'home-white': theme }">
+  <app-sidenav-main class="sidenav-main"></app-sidenav-main>
+  <app-side-nav
+    class="side-nav"
+    [typingSignal]="typingSignal"
+    [typingChat]="typingChat"
+  ></app-side-nav>
+  <div class="chats-main">
+    <!-- <div>{{}}</div> -->
+
+    <div
+      class="messages-container"
+      #scrollContainer
+      *ngIf="messages && messages.length > 0"
+    >
+      <ng-container *ngFor="let message of messages">
+        <div
+          [ngClass]="{
+            'right-message': message.senderId == currentUser._id,
+            'left-message': message.senderId != currentUser._id
+          }"
+        >
+          <div class="message-text">
+            {{ message.text }}
+          </div>
+          <div class="message-time">
+            {{ message.createdAt | messageTime }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="!messages">
+      <div style="color: white">
+        Select a chat to send message or create new chat
+      </div>
+    </ng-container>
+
+    <ng-container>
+      <div>
+        <div *ngIf="showEmoji" class="emoji-picker">
+          <emoji-mart (emojiSelect)="addEmoji($event)"></emoji-mart>
+        </div>
+        <div class="input-container">
+          <div>
+            <button id="emoji-trigger" (click)="toggleEmoji()">☺</button>
+          </div>
+          <form class="message-input-form">
+            <input
+              type="text"
+              name="textMessage"
+              (input)="onInput()"
+              [(ngModel)]="textMessage"
+            />
+            <button
+              [disabled]="textMessage == ''"
+              class="sendBtn"
+              (click)="sendMessage()"
+            >
+              <i class="material-icons">&#xe163;</i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+@use "../../scss/abstracts/colors" as c;
+
+.div-home {
+  display: flex;
+  // gap: 20px;
+  // height: 90vh;
+
+  .chats-main {
+    flex: 1;
+  }
+
+  .side-nav {
+    width: 27%;
+    height: 90vh;
+  }
+
+  .sidenav-main {
+    width: 4%;
+  }
+}
+
+.home-black {
+  background-color: c.$black;
+}
+
+.home-white {
+  background-color: c.$white;
+}
+
+.left-message {
+  position: relative;
+  color: white;
+  background-color: rgb(66, 66, 66);
+  width: 50%;
+  padding: 10px 10px;
+  margin: 10px auto 10px 10px;
+  border-radius: 8px;
+
+  .message-time {
+    color: rgba(255, 255, 255, 0.51);
+  }
+}
+
+.right-message {
+  color: black;
+  background-color: rgb(94, 255, 239);
+  margin: 10px 10px 10px auto;
+  border-radius: 8px;
+  padding: 10px 10px;
+  width: 50%;
+  position: relative;
+
+  .message-time {
+    color: rgba(0, 0, 0, 0.51);
+  }
+}
+
+.message-text {
+  font-size: 15px;
+  // position: relative;
+}
+
+.message-time {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 12px;
+}
+
+.input-container {
+  // position: fixed;
+  // bottom: 0;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  padding-bottom: 15px;
+  background-color: #242424;
+  padding-top: 15px;
+}
+
+.chats-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.emoji-picker {
+  position: absolute;
+  height: 300px;
+  width: 340px;
+  background-color: rgb(220, 220, 220);
+  bottom: 100px;
+  overflow-y: scroll;
+  border-radius: 8px;
+  padding: 10px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#emoji-trigger {
+  color: white;
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.message-input-form {
+  display: flex;
+  width: 59%;
+  // flex: 1;
+  // justify-content: center;
+
+  input {
+    // flex: 1;
+    padding: 10px 15px;
+    font-size: 17px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(66, 66, 66);
+    color: white;
+  }
+
+  .sendBtn {
+    border-radius: 50%;
+    margin: 0 0 0 2%;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgb(165, 152, 252);
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.messages-container {
+  max-height: 77vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+<div *ngIf="recipientUser">
+  <div class="list-item-main">
+    <div class="profile-picture"></div>
+    <div class="recipientDiv">
+      <div class="recipientName">{{ recipientUser.name }}</div>
+
+      <div class="message" *ngIf="!typingSignal">{{ chat._id }}</div>
+      <div
+        class="message"
+        *ngIf="typingSignal && typingChat && typingChat._id === chat._id"
+        style="color: rgb(94, 255, 239)"
+      >
+        Typing..
+      </div>
+    </div>
+    <div class="chat-indicator-main">
+      <div class="date-container">11/01/2004</div>
+      <div class="notification-cintainer">1</div>
+    </div>
+    <div class="online-status" *ngIf="isOnline"></div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "email": "xyz@gmail.com",
+    "password": "Xyz@1234",
+    "expected": "Logged in Successfully"
+  },
+  {
+    "email": "xyz@gmail.com",
+    "password": "xyz@1234",
+    "expected": "Login Failed :"
+  },
+  {
+    "email": "xy@gmail.com",
+    "password": "Xyz@1234",
+    "expected": "Login Failed :"
+  }
+]

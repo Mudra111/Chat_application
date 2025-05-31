@@ -1,0 +1,8 @@
+<div
+  class="mainDiv"
+  [ngClass]="{ 'theme-black': !theme, 'theme-white': theme }"
+>
+  <app-header />
+  <router-outlet />
+  <button *ngIf="installAvailable" (click)="showIndtall()">Install</button>
+</div>

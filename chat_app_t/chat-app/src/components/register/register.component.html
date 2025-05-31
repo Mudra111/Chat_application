@@ -1,0 +1,100 @@
+<div class="div-main-register">
+  <form (ngSubmit)="register()" [formGroup]="registerForm">
+    <div>
+      <label for="exampleInputName">Name: </label>
+      <input type="text" id="exampleInputName" formControlName="name" />
+      <div
+        *ngIf="
+          registerForm.get('name')?.invalid && registerForm.get('name')?.touched
+        "
+        style="color: red"
+      >
+        <p>Name is required!!</p>
+      </div>
+    </div>
+    <div>
+      <label for="exampleInputEmail1">Email address: </label>
+      <input type="email" id="exampleInputEmail1" formControlName="email" />
+      <div
+        *ngIf="
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+        "
+        style="color: red"
+      >
+        <p>Email is required!!</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1">Password:</label>
+      <input
+        type="password"
+        id="exampleInputPassword1"
+        formControlName="password"
+      />
+      <div
+        *ngIf="
+          registerForm.get('password')?.invalid &&
+          registerForm.get('password')?.touched
+        "
+      >
+        <p
+          style="color: red"
+          *ngIf="registerForm.get('password')?.hasError('required')"
+        >
+          Password is required!!
+        </p>
+        <p
+          style="color: red"
+          *ngIf="
+            registerForm.get('password')?.invalid &&
+            !registerForm.get('password')?.hasError('required')
+          "
+        >
+          Password must be strong!! ( It must be 6 character long )
+        </p>
+      </div>
+    </div>
+    <div>
+      <label for="phone">Phone Number: </label>
+      <input type="text" id="phone" formControlName="phone" />
+      <div
+        *ngIf="
+          registerForm.get('phone')?.invalid &&
+          registerForm.get('phone')?.touched
+        "
+        style="color: red"
+      >
+        <p *ngIf="registerForm.get('phone')?.hasError('required')">
+          Phone Number is required!!
+        </p>
+      </div>
+      <div
+        *ngIf="
+          registerForm.get('phone')?.invalid &&
+          registerForm.get('phone')?.touched
+        "
+        style="color: red"
+      >
+        <p *ngIf="registerForm.get('phone')?.hasError('minlength')">
+          Phone Number must contain 10 digits!!
+        </p>
+      </div>
+    </div>
+    <div>
+      <p class="p-last-register">
+        Already have an account?
+        <a routerLink="/login" aria-current="page">Login Here</a>
+      </p>
+    </div>
+    <div class="text-center">
+      <button
+        type="submit"
+        [disabled]="registerForm.invalid"
+        class="btn-register"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>

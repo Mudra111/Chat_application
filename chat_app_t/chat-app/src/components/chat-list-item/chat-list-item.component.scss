@@ -1,0 +1,73 @@
+@use "../../scss/abstracts/colors" as c;
+
+.list-item-main {
+  background-color: rgba(0, 0, 0, 0.204);
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+  .online-status {
+    position: absolute;
+    right: 2%;
+    top: 8%;
+    height: 6px;
+    width: 6px;
+    background-color: rgb(1, 181, 1);
+    border-radius: 50%;
+  }
+
+  .profile-picture {
+    background-color: gray;
+    border-radius: 50%;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+  }
+
+  .recipientDiv {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .recipientName {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 500;
+      padding: 5px;
+    }
+
+    .message {
+      color: rgba(255, 255, 255, 0.836);
+      font-size: 1rem;
+      overflow-x: hidden;
+      padding: 5px;
+      font-weight: 400;
+    }
+  }
+
+  .chat-indicator-main {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    .date-container {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 5px 0 5px 5px;
+    }
+
+    .notification-cintainer {
+      background: c.$primary-gradiant;
+      padding: 2px 5px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: black;
+    }
+  }
+}

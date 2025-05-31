@@ -1,0 +1,92 @@
+@use "../../scss/abstracts/colors" as c;
+
+.sidenav-main-container {
+  background-color: black;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  height: 90vh;
+  z-index: 999;
+
+  .sidenav-opt {
+    width: 100%;
+    margin-bottom: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(211 211 211 / 14%);
+    }
+
+    .create-chat-button {
+      background: c.$primary-gradiant;
+      border-radius: 50%;
+      width: 90%;
+      margin: 10% auto;
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 33px;
+        width: 60%;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+.users-list-main {
+  position: fixed;
+  top: 10%;
+  left: -600px;
+  height: 90vh;
+  background-color: rgb(27, 26, 26);
+  z-index: 1;
+  width: 410px;
+  transition: left 0.5s ease-out;
+
+  &.active {
+    left: 0;
+  }
+
+  .back-arrow {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 30px;
+      width: 30px;
+      padding: 10px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.459);
+      }
+    }
+  }
+
+  .user-list-item {
+    background-color: rgba(0, 0, 0, 0.204);
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+    div .user-name {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 500;
+      padding: 5px;
+    }
+
+    .profile-picture {
+      background-color: gray;
+      border-radius: 50%;
+      border: 1px solid black;
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

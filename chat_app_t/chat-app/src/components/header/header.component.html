@@ -1,0 +1,40 @@
+<div>
+  <div
+    class="navbar j-space-b"
+    [ngClass]="{ 'navbar-white': theme, 'navbar-gray': !theme }"
+  >
+    <li class="navbar-item d-flex-r" routerLink="/home">
+      <div>Profile_pic</div>
+      <div class="navbar-item name" *ngIf="userName == ''">Name</div>
+      <div class="navbar-item name" *ngIf="userName != ''">{{ userName }}</div>
+    </li>
+    <li class="navbar-item d-flex-r">
+      <div class="navbar-item" routerLink="/login" *ngIf="!isAuthenticated">
+        Login
+      </div>
+      <div
+        class="navbar-item"
+        id="logoutBtn"
+        (click)="logout()"
+        *ngIf="isAuthenticated"
+      >
+        Log Out
+      </div>
+      <div
+        class="navbar-item"
+        id="register"
+        routerLink="/register"
+        *ngIf="!isAuthenticated"
+      >
+        Register
+      </div>
+      <div class="toggle-theme">
+        <label class="switch">
+          <span class="border">
+            <!-- <input [type]="'checkbox'" (click)="" #themeChange /> -->
+            <span class="slider"></span></span
+        ></label>
+      </div>
+    </li>
+  </div>
+</div>

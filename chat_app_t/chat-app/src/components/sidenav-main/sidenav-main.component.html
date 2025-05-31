@@ -1,0 +1,32 @@
+<div class="sidenav-main-container">
+  <div
+    class="sidenav-opt"
+    matTooltip="Create new chat"
+    matTooltipPosition="after"
+    (click)="toggleUserList()"
+  >
+    <div class="create-chat-button">
+      <img [src]="createChat" alt="create-chat" />
+    </div>
+  </div>
+</div>
+
+<div class="users-list-main" [class.active]="isCreateChat">
+  <div class="back-arrow">
+    <img
+      src="../../assets/images/icons/back-arrow-icon.png"
+      (click)="toggleUserList()"
+    />
+  </div>
+
+  <ng-container *ngIf="users.length > 0">
+    <ng-container *ngFor="let user of users">
+      <div class="user-list-item" (click)="createChatWith(user)">
+        <div class="profile-picture"></div>
+        <div>
+          <div class="user-name">{{ user.name }}</div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

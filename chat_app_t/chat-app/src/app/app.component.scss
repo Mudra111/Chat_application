@@ -1,0 +1,13 @@
+@use "../scss/abstracts/colors" as c;
+
+// .mainDiv {
+//   height: 100vh;
+// }
+
+.theme-white {
+  background-color: c.$white;
+}
+
+.theme-black {
+  background-color: c.$black;
+}
